@@ -1,5 +1,6 @@
 import './App.css';
-import { UIListTabContainer } from './components/UIList/UILIstTabContainer';
+import '../src/styles/reset.scss';
+import { UIListTabContainer } from './pages/UIList/UILIstTabContainer';
 
 function App() {
 	return (
