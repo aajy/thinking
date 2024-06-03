@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container } from '../../styledComponents/container';
+import { Container } from '../../styles/container.styled';
 import { TabMenu } from '../../components/TabMenu';
 import { TabContent } from '../../components/TabContent';
 

@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+interface TabProps {
+	len: number;
+}
 interface ButtonProps {
 	index: number;
 	len: number;
@@ -11,17 +14,23 @@ const getRadius = (props: ButtonProps) => {
 		return '0px 10px 10px 0px';
 	}
 };
-const Tab = styled.ul`
+const Tab = styled.ul<TabProps>`
+	width: 100%;
 	display: flex;
-	padding: 10px 20px;
-	gap: -1px;
+	margin: 0;
+	li {
+		width: ${(props) => `calc(100% / ${props.len})`};
+	}
 `;
 const TabButton = styled.button<ButtonProps>`
-	padding: 10px 20px;
+	display: block;
+	width: 100%;
+	padding: 10px 30px;
 	border-radius: ${(props) => getRadius(props)};
 	cursor: pointer;
 	background-color: #fefefe;
 	transition: 0.3s;
+	margin-bottom: 10px;
 	${(props) => {
 		if (props.activeTabIndex === props.index) {
 			return `border: 1px solid #4261df;
@@ -41,7 +50,10 @@ const TabButton = styled.button<ButtonProps>`
 `;
 
 const TabBox = styled.div`
-	color: red;
+	border: 1px solid #d8dcf1;
+	border-radius: 5px;
+	padding: 20px 10px;
+	text-align: center;
 `;
 
 export { Tab, TabButton, TabBox };

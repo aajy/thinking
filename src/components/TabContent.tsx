@@ -1,4 +1,4 @@
-import { TabBox } from '../styledComponents/tab';
+import { TabBox } from '../styles/tab.styled';
 interface TabContentProps {
 	activeTabIndex: number;
 }

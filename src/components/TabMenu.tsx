@@ -1,4 +1,4 @@
-import { Tab, TabButton } from '../styledComponents/tab';
+import { Tab, TabButton } from '../styles/tab.styled';
 
 interface TabMenuProps {
 	UIList: Array<string>;
@@ -7,7 +7,7 @@ interface TabMenuProps {
 }
 export const TabMenu = ({ UIList, activeTabIndex, setActiveTabIndex }: TabMenuProps) => {
 	return (
-		<Tab>
+		<Tab len={UIList.length}>
 			{UIList.map((el, index) => (
 				<li>
 					<TabButton index={index} len={UIList.length} activeTabIndex={activeTabIndex} onClick={() => setActiveTabIndex(index)}>
