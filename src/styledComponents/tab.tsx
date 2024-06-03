@@ -2,6 +2,7 @@ import styled from 'styled-components';
 interface ButtonProps {
 	index: number;
 	len: number;
+	activeTabIndex: number;
 }
 const getRadius = (props: ButtonProps) => {
 	if (props.index === 0) {
@@ -10,24 +11,37 @@ const getRadius = (props: ButtonProps) => {
 		return '0px 10px 10px 0px';
 	}
 };
-const UITab = styled.ul`
+const Tab = styled.ul`
 	display: flex;
-	background-color: #f7fbfe;
 	padding: 10px 20px;
+	gap: -1px;
 `;
-const UITabButton = styled.button<ButtonProps>`
-	color: #fff;
+const TabButton = styled.button<ButtonProps>`
 	padding: 10px 20px;
-	border: 1px solid #eeeeee;
-	color: #3e3e3e;
 	border-radius: ${(props) => getRadius(props)};
 	cursor: pointer;
+	background-color: #fefefe;
 	transition: 0.3s;
-	&:hover {
-		border: 1px solid #8293d7;
-		color: #8293d7;
-		background-color: #f7fbfe;
-	}
+	${(props) => {
+		if (props.activeTabIndex === props.index) {
+			return `border: 1px solid #4261df;
+				color: #4261df;
+				background-color: #edeffd;
+				&:hover {
+		background-color: #d8dcf1;
+	}`;
+		} else {
+			return `border: 1px solid #eeeeee;
+				color: #3e3e3e;
+				&:hover {
+					background-color: #f7f7f7;
+				}`;
+		}
+	}}
 `;
 
-export { UITab, UITabButton };
+const TabBox = styled.div`
+	color: red;
+`;
+
+export { Tab, TabButton, TabBox };
