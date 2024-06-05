@@ -7,7 +7,7 @@ interface InputFieldProps {
 
 export const InputField = ({ label, type, value, onChange }: InputFieldProps) => {
 	return (
-		<>
+		<div className='inputField'>
 			<label htmlFor={label}>{label}</label>
 			<input
 				name={label}
@@ -17,6 +17,6 @@ export const InputField = ({ label, type, value, onChange }: InputFieldProps) =>
 					onChange?.(e);
 				}}
 			/>
-		</>
+		</div>
 	);
 };
