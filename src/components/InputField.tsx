@@ -8,7 +8,9 @@ interface InputFieldProps {
 export const InputField = ({ label, type, value, onChange }: InputFieldProps) => {
 	return (
 		<div className='inputField'>
-			<label htmlFor={label}>{label}</label>
+			<label className={label !== 'Disabled' ? 'labelDefault' : ''} htmlFor={label}>
+				{label}
+			</label>
 			<input
 				name={label}
 				type={type}
