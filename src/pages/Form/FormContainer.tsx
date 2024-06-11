@@ -29,7 +29,7 @@ export const FormContainer = () => {
 				<InputField label='Disabled' type='text' value={FormValues.disabled} />
 
 				<InputField
-					label='password'
+					label='Password'
 					type='password'
 					value={FormValues.password}
 					onChange={(e) =>

@@ -27,17 +27,19 @@ export const InputField = ({ label, type, value, onChange }: InputFieldProps) =>
 	return (
 		<div className='inputField'>
 			<label className={stylingLabel(label)} htmlFor={label}>
-				{label}
+				{label === 'Required' ? `${label} *` : `${label}`}
 			</label>
 			<input
 				name={label}
 				type={type}
+				className={stylingLabel(label)}
 				value={value}
 				onChange={(e) => {
 					onChange?.(e);
 				}}
 				onFocus={() => setActive(true)}
 				onBlur={() => setActive(false)}
+				disabled={label === 'Disabled'}
 			/>
 		</div>
 	);
