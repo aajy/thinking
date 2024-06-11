@@ -12,6 +12,7 @@
 		position: relative;
 		> label {
 			position: absolute;
+			z-index: 1;
 			left: 5px;
 			top: -12px;
 			background-color: #fff;
@@ -19,9 +20,11 @@
 			color: #888;
 			font-size: 0.8rem;
 			transition: 0.3s;
-			&.labelDefault {
+			&.default {
 				top: 50%;
 				transform: translateY(-50%);
+				z-index: -1;
+				color: #888;
 			}
 			&.active {
 				color: #4261df;
@@ -33,6 +36,7 @@
 			border-radius: 3px;
 			border: 1px solid #aaa;
 			padding: 5px;
+			background-color: transparent;
 		}
 	}
 	.formValues {
