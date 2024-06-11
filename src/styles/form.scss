@@ -1,3 +1,9 @@
+h1 {
+	font-size: 24px;
+	font-weight: lighter;
+	color: #888;
+	padding: 20px 30px;
+}
 .formContainer {
 	width: 500px;
 	display: flex;
@@ -52,4 +58,10 @@
 		display: flex;
 		flex-direction: column;
 	}
+}
+
+.TightFormContainer {
+	width: 500px;
+	padding: 30px;
+	border: 1px solid #ccc;
 }
