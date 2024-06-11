@@ -6,9 +6,20 @@ interface InputFieldProps {
 }
 
 export const InputField = ({ label, type, value, onChange }: InputFieldProps) => {
+	const stylingLabel = (label: string) => {
+		if (label === 'Disabled') {
+			return '';
+		} else {
+			if (!value || value.length <= 0) {
+				return 'labelDefault';
+			} else {
+				return 'active';
+			}
+		}
+	};
 	return (
 		<div className='inputField'>
-			<label className={label !== 'Disabled' ? 'labelDefault' : ''} htmlFor={label}>
+			<label className={stylingLabel(label)} htmlFor={label}>
 				{label}
 			</label>
 			<input
