@@ -49,11 +49,11 @@ const TabButton = styled.button<ButtonProps>`
 	}}
 `;
 
-const TabBox = styled.div`
+const TabPanelContent = styled.div`
 	border: 1px solid #d8dcf1;
 	border-radius: 5px;
 	padding: 20px 10px;
 	text-align: center;
 `;
 
-export { Tab, TabButton, TabBox };
+export { Tab, TabButton, TabPanelContent };
