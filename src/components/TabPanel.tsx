@@ -1,7 +1,11 @@
 import { TabPanelContent } from '../styles/tab.styled';
-// interface TabPanelProps {
-// 	activeTabIndex: number;
-// }
-export const TabPanel = ({}) => {
-	return <TabPanelContent>{}</TabPanelContent>;
+import { TabPanelDataType } from '../types/tabData';
+
+interface TabPanelProps {
+	tabPanelData: TabPanelDataType;
+}
+
+export const TabPanel = ({ tabPanelData }: TabPanelProps) => {
+	console.log(tabPanelData);
+	return <TabPanelContent>{Object.entries(tabPanelData).map(([key, value]) => `${key}: ${value}`)}</TabPanelContent>;
 };
