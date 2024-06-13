@@ -1,20 +1,29 @@
-import { Tab, TabButton } from '../styles/tab.styled';
+import { useState } from 'react';
+import { TabListWrap, TabButton } from '../styles/tab.styled';
 
 interface TabListProps {
-	uiList: Array<string>;
-	activeTabIndex: number;
-	setActiveTabIndex: React.Dispatch<React.SetStateAction<number>>;
+	tabDataList: Array<string>;
+	handleTabClick: React.MouseEventHandler<HTMLButtonElement>;
 }
-export const TabList = ({ uiList, activeTabIndex, setActiveTabIndex }: TabListProps) => {
+export const TabList = ({ tabDataList, handleTabClick }: TabListProps) => {
+	const [activeTabIndex, setActiveTabIndex] = useState(0);
 	return (
-		<Tab len={uiList.length}>
-			{uiList.map((el, index) => (
+		<TabListWrap len={tabDataList.length}>
+			{tabDataList.map((el, index) => (
 				<li>
-					<TabButton index={index} len={uiList.length} activeTabIndex={activeTabIndex} onClick={() => setActiveTabIndex(index)}>
+					<TabButton
+						index={index}
+						len={tabDataList.length}
+						activeTabIndex={activeTabIndex}
+						onClick={(e) => {
+							handleTabClick(e);
+							setActiveTabIndex(index);
+						}}
+					>
 						{el}
 					</TabButton>
 				</li>
 			))}
-		</Tab>
+		</TabListWrap>
 	);
 };

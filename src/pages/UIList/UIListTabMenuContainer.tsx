@@ -1,15 +1,18 @@
-import { useState } from 'react';
 import { Container } from '../../styles/container.styled';
 import { TabList } from '../../components/TabList';
 import { TabPanel } from '../../components/TabPanel';
 
 export const UIListTabMenuContainer = () => {
-	const uiList = ['Joy', 'Material', 'Base'];
-	const [activeTabIndex, setActiveTabIndex] = useState(0);
+	const uiList: string[] = ['Joy', 'Material', 'Base'];
+
+	const getActiveTab = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		e.preventDefault();
+	};
+
 	return (
 		<Container width={500}>
-			<TabList uiList={uiList} activeTabIndex={activeTabIndex} setActiveTabIndex={setActiveTabIndex} />
-			<TabPanel activeTabIndex={activeTabIndex} />
+			<TabList tabDataList={uiList} handleTabClick={getActiveTab} />
+			<TabPanel />
 		</Container>
 	);
 };
