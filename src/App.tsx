@@ -2,8 +2,8 @@ import './App.css';
 import '../src/styles/reset.scss';
 import { UIListTabMenuContainer } from './pages/UIList/UIListTabMenuContainer';
 import { FormContainer } from './pages/Form/FormContainer';
-import { TightCouplingForm } from './pages/Form/TightCouplingForm';
-import { LooseCouplingForm } from './pages/Form/LooseCouplingForm';
+import { LooseCouplingFormContainer } from './pages/Form/LooseCouplingFormContainer';
+import { TightCouplingFormContainer } from './pages/Form/TightCouplingFormContainer';
 
 function App() {
 	return (
@@ -11,8 +11,8 @@ function App() {
 			<h1>Thinking</h1>
 			<UIListTabMenuContainer />
 			<FormContainer />
-			<TightCouplingForm />
-			<LooseCouplingForm />
+			<TightCouplingFormContainer />
+			<LooseCouplingFormContainer />
 		</div>
 	);
 }

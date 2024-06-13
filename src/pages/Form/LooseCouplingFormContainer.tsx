@@ -2,12 +2,14 @@ import { useState } from 'react';
 import '../../styles/form.scss';
 import { TightInputField } from '../../components/TightInputField';
 import useInputFocus from '../../hooks/useInputFocus';
+
 interface FormValuesType {
 	required: string;
 	disabled: string;
 	password: string;
 }
-export const TightCouplingForm = () => {
+
+export const LooseCouplingFormContainer = () => {
 	const [isActiveRequired, handleFocusRequired, handleBlurRequired] = useInputFocus();
 	const [isActivePassword, handleFocusPassword, handleBlurPassword] = useInputFocus();
 	const [FormValues, setFormValues] = useState<FormValuesType>({
@@ -15,6 +17,7 @@ export const TightCouplingForm = () => {
 		disabled: 'disabled',
 		password: '',
 	});
+
 	return (
 		<>
 			<h1>Tight Coupling Form</h1>

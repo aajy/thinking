@@ -2,7 +2,7 @@ import { DisabledInput } from '../../components/DisabledInput';
 import { PasswordInput } from '../../components/PasswordInput';
 import { RequiredInput } from '../../components/RequiredInput';
 
-export const LooseCouplingForm = () => {
+export const TightCouplingFormContainer = () => {
 	return (
 		<>
 			<h1>Loose Coupling Form</h1>
