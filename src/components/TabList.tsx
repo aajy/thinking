@@ -6,11 +6,11 @@ interface TabListProps {
 	handleTabClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 export const TabList = ({ tabDataList, handleTabClick }: TabListProps) => {
-	const [activeTabIndex, setActiveTabIndex] = useState(0);
+	const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 	return (
 		<TabListWrap len={tabDataList.length}>
 			{tabDataList.map((el, index) => (
-				<li>
+				<li key={index + el}>
 					<TabButton
 						index={index}
 						len={tabDataList.length}
