@@ -24,6 +24,7 @@ export const TightInputField = ({ label, type, value, onChange, onFocus, onBlur,
 			}
 		}
 	};
+
 	return (
 		<div className='inputField'>
 			<label className={stylingLabel(label)} htmlFor={label}>

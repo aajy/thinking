@@ -5,8 +5,10 @@ interface TabListProps {
 	tabDataList: Array<string>;
 	handleTabClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
 export const TabList = ({ tabDataList, handleTabClick }: TabListProps) => {
-	const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+	const [currentTab, setCurrentTab] = useState<string>(tabDataList[0]);
+
 	return (
 		<TabListWrap len={tabDataList.length}>
 			{tabDataList.map((el, index) => (
@@ -14,10 +16,10 @@ export const TabList = ({ tabDataList, handleTabClick }: TabListProps) => {
 					<TabButton
 						index={index}
 						len={tabDataList.length}
-						activeTabIndex={activeTabIndex}
+						isActive={currentTab === el}
 						onClick={(e) => {
 							handleTabClick(e);
-							setActiveTabIndex(index);
+							setCurrentTab(el);
 						}}
 					>
 						{el}
