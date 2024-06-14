@@ -14,7 +14,7 @@ const getRadius = (props: ButtonProps) => {
 		return '0px 10px 10px 0px';
 	}
 };
-const Tab = styled.ul<TabProps>`
+const TabListWrap = styled.ul<TabProps>`
 	width: 100%;
 	display: flex;
 	margin: 0;
@@ -49,11 +49,11 @@ const TabButton = styled.button<ButtonProps>`
 	}}
 `;
 
-const TabBox = styled.div`
+const TabPanelContent = styled.div`
 	border: 1px solid #d8dcf1;
 	border-radius: 5px;
 	padding: 20px 10px;
 	text-align: center;
 `;
 
-export { Tab, TabButton, TabBox };
+export { TabListWrap, TabButton, TabPanelContent };

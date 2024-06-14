@@ -1,18 +1,20 @@
 import './App.css';
 import '../src/styles/reset.scss';
-import { UIListTabContainer } from './pages/UIList/UILIstTabContainer';
+import { UIListTabMenuContainer } from './pages/UIList/UIListTabMenuContainer';
 import { FormContainer } from './pages/Form/FormContainer';
-import { TightCouplingForm } from './pages/Form/TightCouplingForm';
-import { LooseCouplingForm } from './pages/Form/LooseCouplingForm';
+import { LooseCouplingFormContainer } from './pages/Form/LooseCouplingFormContainer';
+import { TightCouplingFormContainer } from './pages/Form/TightCouplingFormContainer';
+import { Input } from './components/Input';
 
 function App() {
 	return (
 		<div className='App'>
 			<h1>Thinking</h1>
-			<UIListTabContainer />
+			<UIListTabMenuContainer />
 			<FormContainer />
-			<TightCouplingForm />
-			<LooseCouplingForm />
+			<TightCouplingFormContainer />
+			<LooseCouplingFormContainer />
+			<Input />
 		</div>
 	);
 }

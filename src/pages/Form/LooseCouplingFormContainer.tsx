@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import '../../styles/form.scss';
 import { TightInputField } from '../../components/TightInputField';
-import useInputFocus from '../../hooks/useInputFocus';
+import useGetActiveElement from '../../hooks/useGetActiveElement';
+
 interface FormValuesType {
 	required: string;
 	disabled: string;
 	password: string;
 }
-export const TightCouplingForm = () => {
-	const [isActiveRequired, handleFocusRequired, handleBlurRequired] = useInputFocus();
-	const [isActivePassword, handleFocusPassword, handleBlurPassword] = useInputFocus();
+
+export const LooseCouplingFormContainer = () => {
+	const { isActive: isActiveRequired, activateOnFocus: activateOnFocusRequired, deactivateOnBlur: deactivateOnBlurRequired } = useGetActiveElement();
+	const { isActive: isActivePassword, activateOnFocus: activateOnFocusPassword, deactivateOnBlur: deactivateOnBlurPassword } = useGetActiveElement();
 	const [FormValues, setFormValues] = useState<FormValuesType>({
 		required: '',
 		disabled: 'disabled',
 		password: '',
 	});
+
 	return (
 		<>
 			<h1>Tight Coupling Form</h1>
@@ -23,8 +26,8 @@ export const TightCouplingForm = () => {
 					label='Required'
 					type='text'
 					value={FormValues.required}
-					onFocus={handleFocusRequired}
-					onBlur={handleBlurRequired}
+					onFocus={activateOnFocusRequired}
+					onBlur={deactivateOnBlurRequired}
 					onChange={(e) =>
 						setFormValues((prevValues) => ({
 							...prevValues,
@@ -38,8 +41,8 @@ export const TightCouplingForm = () => {
 					label='Password'
 					type='password'
 					value={FormValues.password}
-					onFocus={handleFocusPassword}
-					onBlur={handleBlurPassword}
+					onFocus={activateOnFocusPassword}
+					onBlur={deactivateOnBlurPassword}
 					onChange={(e) =>
 						setFormValues((prevValues) => ({
 							...prevValues,
