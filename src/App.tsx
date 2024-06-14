@@ -4,6 +4,7 @@ import { UIListTabMenuContainer } from './pages/UIList/UIListTabMenuContainer';
 import { FormContainer } from './pages/Form/FormContainer';
 import { LooseCouplingFormContainer } from './pages/Form/LooseCouplingFormContainer';
 import { TightCouplingFormContainer } from './pages/Form/TightCouplingFormContainer';
+import { Input } from './components/Input';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<FormContainer />
 			<TightCouplingFormContainer />
 			<LooseCouplingFormContainer />
+			<Input />
 		</div>
 	);
 }
