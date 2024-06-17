@@ -5,6 +5,7 @@ import { FormContainer } from './pages/Form/FormContainer';
 import { LooseCouplingFormContainer } from './pages/Form/LooseCouplingFormContainer';
 import { TightCouplingFormContainer } from './pages/Form/TightCouplingFormContainer';
 import { Input } from './components/Input';
+import { TodoListContainer } from './pages/TodoList/TodoListContainer';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			<TightCouplingFormContainer />
 			<LooseCouplingFormContainer />
 			<Input />
+			<TodoListContainer />
 		</div>
 	);
 }
