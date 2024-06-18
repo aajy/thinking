@@ -51,6 +51,27 @@ const useHandleLocalTodoList = () => {
 		return true;
 	};
 
+	//localStorage에 특정 task수정 후 결과 boolean값 반환
+	const updateTask = (id: number, task: string): boolean => {
+		const updatedList = todoList.map((item) => {
+			if (item.id === id) {
+				return {
+					...item,
+					task, //Shorthand for task: task
+				};
+			}
+			return item;
+		});
+
+		setTodoList(updatedList);
+
+		if (!saveTodoListToLocalStorage(updatedList)) {
+			return false;
+		}
+
+		return true;
+	};
+
 	//localStorage에 특정 task의 완료 boolean값 저장 후 결과 boolean값 반환
 	const toggleTaskCompletion = (id: number): boolean => {
 		const updatedList = todoList.map((item) => (item.id === id ? { ...item, isComplete: !item.isComplete } : item));
@@ -65,6 +86,7 @@ const useHandleLocalTodoList = () => {
 		todoList,
 		addTask,
 		deleteTask,
+		updateTask,
 		toggleTaskCompletion,
 	};
 };

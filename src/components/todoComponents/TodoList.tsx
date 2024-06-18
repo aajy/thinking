@@ -1,4 +1,5 @@
 import { TodoType } from '../../types/todoType';
+import { UpdateTask } from './UpdateTask';
 
 interface TodoListProps {
 	todoList: TodoType[];
@@ -14,7 +15,7 @@ export const TodoList = ({ todoList, deleteTask, updateTask }: TodoListProps) =>
 					<div key={`${el} + ${idx}`}>
 						<span>{el.task}</span>
 						<button onClick={() => deleteTask(el.id)}>delate</button>
-						{/* <button onClick={() => updateTask(el.id, el.task)}>update</button> */}
+						<UpdateTask id={el.id} onClick={updateTask} />
 					</div>
 				);
 			})}
