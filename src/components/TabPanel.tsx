@@ -6,6 +6,5 @@ interface TabPanelProps {
 }
 
 export const TabPanel = ({ tabPanelData }: TabPanelProps) => {
-	console.log(tabPanelData);
 	return <TabPanelContent>{Object.entries(tabPanelData).map(([key, value]) => `${key}: ${value}`)}</TabPanelContent>;
 };

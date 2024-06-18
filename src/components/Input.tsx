@@ -6,7 +6,7 @@ interface InputProps {
 }
 
 export const Input = ({ onChange }: InputProps) => {
-	const [value, setValue] = useState<string>();
+	const [value, setValue] = useState<string>('');
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (onChange) onChange(e);

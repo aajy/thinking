@@ -15,7 +15,7 @@ function App() {
 			<FormContainer />
 			<TightCouplingFormContainer />
 			<LooseCouplingFormContainer />
-			<Input />
+			{/* <Input /> */}
 			<TodoListContainer />
 		</div>
 	);

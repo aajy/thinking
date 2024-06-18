@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 interface TabProps {
-	len: number;
+	$len: number;
 }
 
 interface ButtonProps {
-	index: number;
-	len: number;
-	isActive: boolean;
+	$index: number;
+	$len: number;
+	$isActive: boolean;
 }
 
 const getRadius = (props: ButtonProps) => {
-	if (props.index === 0) {
+	if (props.$index === 0) {
 		return '10px 0px 0px 10px';
-	} else if (props.index === props.len - 1) {
+	} else if (props.$index === props.$len - 1) {
 		return '0px 10px 10px 0px';
 	}
 };
@@ -24,7 +24,7 @@ const TabListWrap = styled.ul<TabProps>`
 	margin: 0;
 
 	li {
-		width: ${(props) => `calc(100% / ${props.len})`};
+		width: ${(props) => `calc(100% / ${props.$len})`};
 	}
 `;
 
@@ -39,7 +39,7 @@ const TabButton = styled.button<ButtonProps>`
 	margin-bottom: 10px;
 
 	${(props) => {
-		if (props.isActive) {
+		if (props.$isActive) {
 			return `border: 1px solid #4261df;
 				color: #4261df;
 				background-color: #edeffd;
