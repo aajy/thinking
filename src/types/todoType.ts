@@ -1,5 +1,5 @@
 interface TodoType {
-	id?: number;
+	id: number;
 	task: string;
 	isComplete?: boolean;
 	deadline?: number;
