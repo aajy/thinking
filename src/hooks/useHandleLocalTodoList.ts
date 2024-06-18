@@ -38,7 +38,6 @@ const useHandleLocalTodoList = () => {
 		if (!saveTodoListToLocalStorage(updatedList)) {
 			return false;
 		}
-		console.log('updatedList: ', updatedList);
 		return true;
 	};
 

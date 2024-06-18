@@ -14,7 +14,7 @@ export const AddTask = ({ onClick }: AddTaskProps) => {
 
 	return (
 		<>
-			<Input onChange={updateCurrentTask} />
+			<Input value={currentTask} onChange={updateCurrentTask} />
 			<button
 				onClick={(e) => {
 					e.preventDefault();

@@ -23,7 +23,7 @@ export const TodoList = ({ todoList, deleteTask, updateTask, toggleTaskCompletio
 						/>
 						<span>{el.task}</span>
 						<button onClick={() => deleteTask(el.id)}>delate</button>
-						<UpdateTask id={el.id} onClick={updateTask} />
+						<UpdateTask id={el.id} task={el.task} onClick={updateTask} />
 					</div>
 				);
 			})}
