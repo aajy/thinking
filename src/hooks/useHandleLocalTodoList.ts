@@ -20,6 +20,7 @@ const useHandleLocalTodoList = () => {
 			console.error('Failed to save to localStorage', error);
 			return false;
 		}
+		console.log(updatedList);
 		return true;
 	};
 
