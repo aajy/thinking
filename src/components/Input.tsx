@@ -1,18 +1,14 @@
-import { useState } from 'react';
 import '../styles/input.scss';
 
 interface InputProps {
-	value?: string;
+	value: string;
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	maxInputLength?: number;
 }
 
-export const Input = ({ value = '', onChange, maxInputLength = 20 }: InputProps) => {
-	const [internalValue, setInternalValue] = useState<string>(value);
-
+export const Input = ({ value, onChange, maxInputLength = 20 }: InputProps) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (onChange) onChange(e);
-		setInternalValue(e.target.value);
 	};
 
 	const isActive = (value: string) => {
@@ -20,5 +16,5 @@ export const Input = ({ value = '', onChange, maxInputLength = 20 }: InputProps)
 		else return false;
 	};
 
-	return <input className={internalValue && isActive(internalValue) ? 'active' : ''} type='text' value={internalValue} onChange={handleChange} />;
+	return <input className={value && isActive(value) ? 'active' : ''} type='text' value={value} onChange={handleChange} />;
 };
