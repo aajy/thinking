@@ -10,13 +10,13 @@ export const TabList = ({ tabDataList, handleTabClick }: TabListProps) => {
 	const [currentTab, setCurrentTab] = useState<string>(tabDataList[0]);
 
 	return (
-		<TabListWrap len={tabDataList.length}>
+		<TabListWrap $len={tabDataList.length}>
 			{tabDataList.map((el, index) => (
 				<li key={index + el}>
 					<TabButton
-						index={index}
-						len={tabDataList.length}
-						isActive={currentTab === el}
+						$index={index}
+						$len={tabDataList.length}
+						$isActive={currentTab === el}
 						onClick={(e) => {
 							handleTabClick(e);
 							setCurrentTab(el);
