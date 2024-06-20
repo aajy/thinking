@@ -1,3 +1,3 @@
 export const GridGameBoard = () => {
-	return <div>grid game board</div>;
+	return <div className='gridGameBoard'>grid game board</div>;
 };
