@@ -7,7 +7,6 @@ interface GridGameBoardType {
 }
 
 export const GridGameBoard = ({ board, onClick }: GridGameBoardType) => {
-	// 현재 승자를 체크
 	const winner = useCheckWinner(board);
 
 	return (

@@ -33,11 +33,14 @@ export const TictactoeContainer = () => {
 		<div className='TictactoeContainer'>
 			<h1>Tic Tac Toe</h1>
 			<h2>Chill Coding with Aajy</h2>
+
 			<p>
 				Player <span className={currentPlayer === 'O' ? 'player1' : 'player2'}>{currentPlayer}</span> turn
 			</p>
 
-			<GridGameBoard board={board} onClick={handleClick} />
+			<div className='GridGameBoardWrap'>
+				<GridGameBoard board={board} onClick={handleClick} />
+			</div>
 
 			<button className='reset' onClick={resetGame}>
 				Reset

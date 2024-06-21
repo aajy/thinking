@@ -6,7 +6,7 @@ interface BoardButtonType {
 
 export const BoardButton = ({ value, isDone, onClick }: BoardButtonType) => {
 	return (
-		<button className='boardButton' disabled={isDone} onClick={onClick}>
+		<button className={value === 'O' ? 'boardButton player1' : 'boardButton player2'} disabled={isDone} onClick={onClick}>
 			{value}
 		</button>
 	);
