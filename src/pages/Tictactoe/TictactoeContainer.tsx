@@ -1,14 +1,15 @@
 import '../../styles/tictactoe.scss';
 import { useState } from 'react';
 import { GridGameBoard } from '../../components/TictactoeComponents/GridGameBoard';
+import useCheckWinner from '../../hooks/useCheckWinner';
 
 export const TictactoeContainer = () => {
 	const [currentPlayer, setCurrentPlayer] = useState<string>('O');
-	const [end, setEnd] = useState<boolean>(false);
 	const [board, setBoard] = useState<string[]>(Array(9).fill(''));
 
-	// 클릭 이벤트 핸들러: 해당 칸이 비어있으면 currentPlayer로 채우기
+	// 게임보드버튼 클릭 이벤트 핸들러
 	const handleClick = (index: number): void => {
+		// 해당 칸이 비어있으면 currentPlayer로 채우기
 		if (board[index] === '') {
 			const newBoard = [...board];
 			newBoard[index] = currentPlayer;
@@ -22,41 +23,11 @@ export const TictactoeContainer = () => {
 	// 게임판 초기화
 	const resetGame = () => {
 		setBoard(Array(9).fill(''));
-		setCurrentPlayer('X');
-	};
-
-	// 승리 조건 체크 함수
-	const checkWinner = () => {
-		// 승리 조건들을 배열로 정의
-		const lines = [
-			[0, 1, 2], // 가로
-			[3, 4, 5],
-			[6, 7, 8],
-			[0, 3, 6], // 세로
-			[1, 4, 7],
-			[2, 5, 8],
-			[0, 4, 8], // 대각선
-			[2, 4, 6],
-		];
-
-		// 모든 가능한 승리 조건을 순회하면서 체크
-		for (let i = 0; i < lines.length; i++) {
-			const [a, b, c] = lines[i];
-			if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-				return board[a]; // X나 O가 3개 연속으로 있는 경우, 해당 플레이어 반환
-			}
-		}
-
-		// 모든 칸이 채워졌는지 체크
-		if (board.every((square) => square !== '')) {
-			return 'Draw'; // 모든 칸이 채워져 있으면 무승부
-		}
-
-		return null; // 아직 승자가 없는 경우
+		setCurrentPlayer('O');
 	};
 
 	// 현재 승자를 체크
-	const winner = checkWinner();
+	const winner = useCheckWinner(board);
 
 	return (
 		<div className='TictactoeContainer'>
@@ -67,11 +38,12 @@ export const TictactoeContainer = () => {
 			</p>
 
 			<GridGameBoard board={board} onClick={handleClick} />
+
 			<button className='reset' onClick={resetGame}>
 				Reset
 			</button>
-			{end && <p>{`Player ${winner} win`}</p>}
-			<div className='status'>{winner ? winner === 'Draw' ? <p>It's a draw!</p> : <p>Player {winner} wins!</p> : <p>Next player: {currentPlayer}</p>}</div>
+
+			<div className='status'>{winner && winner !== 'Draw' ? <p>Player {winner} wins</p> : winner ? <p>It's a draw!</p> : <p></p>}</div>
 		</div>
 	);
 };
